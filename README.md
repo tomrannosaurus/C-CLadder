@@ -11,7 +11,7 @@ To what extent do large language models integrate externally-provided causal gra
 # Experimental Design
 
 ## Six-Condition Framework
-Each causal question is evaluated under six conditions:
+Each causal question is evaluated under six scenarios:
 
 1. **No Graph:** Question only (baseline)
 2. **Correct Graph:**: Question with accurate causal graph
