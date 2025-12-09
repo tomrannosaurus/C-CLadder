@@ -5,6 +5,7 @@ This project investigates whether large language models integrate externally-pro
 It was conducted as part of the WPI "Responsible AI" course (CS555) in Fall 2025.
 
 ## Core Research Question
+
 To what extent do large language models integrate externally-provided causal graph constraints when these constraints conflict with internal causal priors, and which specific structural corruptions reliably induce reasoning failures?
 
 # Experimental Design
@@ -84,7 +85,11 @@ The output file will be appended on the go. It is in [JSONL](https://jsonlines.o
 To run the local models on the corrupted dataset and export the responses to CSV, use the following commands:
 
 ```bash
-python model/run_llm_and_export_csv.py --input_jsonl data/corruption/corrupted_causal_graphs_dataset_f1.jsonl --output_csv mistral.csv --model_id mistralai/Mistral-7B-Instruct-v0.3 --batch_size 16
+python model/run_llm_and_export_csv.py 
+    --input_jsonl data/corruption/corrupted_causal_graphs_dataset_f1.jsonl \
+    --output_csv mistral.csv \
+    --model_id mistralai/Mistral-7B-Instruct-v0.3 \
+    --batch_size 16
 ```
 
 ## Running API Models
