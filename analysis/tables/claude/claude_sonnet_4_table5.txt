@@ -1,0 +1,21 @@
+================================================================================
+Error Pattern Analysis (H4, H8)
+================================================================================
+
+Hypothesis: H4: Corruption-Type Specificity, H8: Error Consistency
+
+                     Total  Errors Error_Rate  Yes_to_No  No_to_Yes Ratio_YN_NY            Model
+Condition                                                                                       
+no_graph              1510     251      16.6%        140        111        1.26  Claude Sonnet 4
+original_graph        1512     151      10.0%         83         68        1.22  Claude Sonnet 4
+reverse_random_edge   1512     222      14.7%        123         99        1.24  Claude Sonnet 4
+add_collider          1511     149       9.9%         80         69        1.16  Claude Sonnet 4
+add_confounder        1512     162      10.7%         94         68        1.38  Claude Sonnet 4
+add_mediator          1511     133       8.8%         72         61        1.18  Claude Sonnet 4
+
+Notes:
+--------------------------------------------------------------------------------
+1. Yes→No: Model incorrectly predicted No when answer was Yes (false negative)
+2. No→Yes: Model incorrectly predicted Yes when answer was No (false positive)
+3. Ratio: (Yes→No) / (No→Yes) indicates bias direction
+4. Look for systematic patterns (e.g., colliders causing specific error types)

@@ -1,0 +1,18 @@
+================================================================================
+Corruption-Specific Sensitivity (H2)
+================================================================================
+
+Hypothesis: H2: Differential Corruption Sensitivity
+
+          Model     Corruption_Type Accuracy    n                  Delta2  Acc_CI_low  Acc_CI_high
+Claude Sonnet 4 reverse_random_edge    0.853 1512 +0.047 [+0.030, +0.064]    0.834440     0.870120
+Claude Sonnet 4      add_confounder    0.893 1512 +0.007 [-0.005, +0.020]    0.876259     0.907464
+Claude Sonnet 4        add_collider    0.901 1511 -0.001 [-0.011, +0.009]    0.885324     0.915420
+Claude Sonnet 4        add_mediator    0.912 1511 -0.012 [-0.024, +0.000]    0.896628     0.925240
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₂ = Acc(Correct Graph) - Acc(This Corruption)
+2. Sorted by Δ₂ magnitude (most harmful first)
+3. Expected ranking: Confounder > Collider > Mediator > Random Edge
+4. Positive Δ₂ indicates corruption hurts performance

@@ -1,0 +1,17 @@
+================================================================================
+Scenario × Corruption Interaction (H3)
+================================================================================
+
+Hypothesis: H3: Scenario-Type Interaction
+
+       Scenario           Model  n_questions Delta2_avg Delta2_reverse_random_edge    Delta2_add_collider  Delta2_add_confounder     Delta2_add_mediator
+    commonsense Claude Sonnet 4          504     +0.014       0.046 [0.018, 0.075] -0.004 [-0.020, 0.014]  0.018 [-0.004, 0.040]  -0.002 [-0.020, 0.016]
+anticommonsense Claude Sonnet 4          504     +0.018       0.053 [0.024, 0.081]  0.010 [-0.004, 0.026]  0.014 [-0.010, 0.038]  -0.004 [-0.024, 0.018]
+       nonsense Claude Sonnet 4          504     -0.002       0.041 [0.012, 0.071] -0.010 [-0.030, 0.010] -0.010 [-0.034, 0.012] -0.030 [-0.054, -0.008]
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₂ = Acc(Correct Graph) - Acc(Corrupted Graph) for each scenario
+2. Expected degradation: Nonsense > Anti-commonsense > Commonsense
+3. Parametric memory should provide more compensation for commonsense
+scenarios

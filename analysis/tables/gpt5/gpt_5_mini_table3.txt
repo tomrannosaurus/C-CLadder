@@ -1,0 +1,17 @@
+================================================================================
+Scenario × Corruption Interaction (H3)
+================================================================================
+
+Hypothesis: H3: Scenario-Type Interaction
+
+       Scenario      Model  n_questions Delta2_avg Delta2_reverse_random_edge    Delta2_add_collider Delta2_add_confounder    Delta2_add_mediator
+    commonsense GPT-5-mini          406     +0.032       0.086 [0.054, 0.118] -0.005 [-0.022, 0.012]  0.047 [0.022, 0.074] -0.002 [-0.019, 0.015]
+anticommonsense GPT-5-mini          392     +0.044       0.102 [0.069, 0.135] -0.005 [-0.015, 0.005]  0.072 [0.043, 0.102]  0.008 [-0.008, 0.023]
+       nonsense GPT-5-mini          448     +0.052       0.096 [0.062, 0.129]  0.004 [-0.009, 0.018]  0.091 [0.062, 0.120]   0.018 [0.002, 0.033]
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₂ = Acc(Correct Graph) - Acc(Corrupted Graph) for each scenario
+2. Expected degradation: Nonsense > Anti-commonsense > Commonsense
+3. Parametric memory should provide more compensation for commonsense
+scenarios

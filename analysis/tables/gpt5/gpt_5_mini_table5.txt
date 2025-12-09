@@ -1,0 +1,21 @@
+================================================================================
+Error Pattern Analysis (H4, H8)
+================================================================================
+
+Hypothesis: H4: Corruption-Type Specificity, H8: Error Consistency
+
+                     Total  Errors Error_Rate  Yes_to_No  No_to_Yes Ratio_YN_NY       Model
+Condition                                                                                  
+no_graph              1245     169      13.6%        134         35        3.83  GPT-5-mini
+original_graph        1245     101       8.1%         68         33        2.06  GPT-5-mini
+reverse_random_edge   1246     219      17.6%        154         65        2.37  GPT-5-mini
+add_collider          1246      99       7.9%         67         32        2.09  GPT-5-mini
+add_confounder        1246     189      15.2%        157         32        4.91  GPT-5-mini
+add_mediator          1245     111       8.9%         78         33        2.36  GPT-5-mini
+
+Notes:
+--------------------------------------------------------------------------------
+1. Yes→No: Model incorrectly predicted No when answer was Yes (false negative)
+2. No→Yes: Model incorrectly predicted Yes when answer was No (false positive)
+3. Ratio: (Yes→No) / (No→Yes) indicates bias direction
+4. Look for systematic patterns (e.g., colliders causing specific error types)

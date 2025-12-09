@@ -1,0 +1,38 @@
+================================================================================
+Statistical Tests Summary
+================================================================================
+
+Hypothesis: Supplementary statistical tests
+
+                         Test  Statistic p_value Interpretation
+        Rung-Level ANOVA (Δ₁)  F = 46.70  0.0020             **
+                  Rung_2_vs_1 Δ = +0.171  0.0000            ***
+                  Rung_2_vs_3 Δ = +0.182  0.0000            ***
+        Rung-Level ANOVA (Δ₂)  F = 31.61  0.0090             **
+                  Rung_2_vs_1 Δ = +0.086  0.0000            ***
+                  Rung_2_vs_3 Δ = +0.032  0.0492              *
+          Corruption Pairwise                                  
+           edge_vs_confounder Δ = +0.024  0.0196              *
+             edge_vs_collider Δ = +0.096  0.0000     *** (Bonf)
+       confounder_vs_collider Δ = +0.072  0.0000     *** (Bonf)
+         collider_vs_mediator Δ = -0.010  0.0148              *
+               McNemar's Test                                  
+        original vs. no_graph χ² = 36.20  0.0000            ***
+       original vs. corrupted  χ² = 1.63  0.2012             ns
+       no_graph vs. corrupted χ² = 30.01  0.0000            ***
+                 Effect Sizes                                  
+   Δ₁ (original vs. no_graph)  h = 0.177       -          small
+  Δ₂ (original vs. corrupted)  h = 0.288       -         medium
+  Δ₃ (no_graph vs. corrupted) h = -0.044       -          small
+
+Notes:
+--------------------------------------------------------------------------------
+1. Test 1: Rung-level ANOVA tests if Δ₁ (graph benefit) varies significantly
+by rung
+2. Test 2: Rung-level ANOVA tests if Δ₂ (corruption harm) varies significantly
+by rung
+3. Test 3: All pairwise corruption type comparisons with Bonferroni correction
+4. Test 4: McNemar's test for paired binary outcomes (three comparisons)
+5. Test 5: Cohen's h effect sizes for Δ₁ (original vs. no_graph), Δ₂ (original
+vs. corrupted), and Δ₃ (no_graph vs. corrupted)
+6. Bootstrap iterations: 10000

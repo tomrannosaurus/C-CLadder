@@ -1,0 +1,422 @@
+================================================================================
+CONFIDENCE INTERVAL REPORT
+================================================================================
+
+Model: llama
+
+Methods:
+  - Binomial CI (Wilson): for accuracy proportions (exact)
+  - Bootstrap (10000 iterations): for deltas and patterns
+
+Interpretation: 95% confidence intervals
+  (If we sampled different questions, we're 95% confident
+   the true value would fall in this range)
+
+================================================================================
+ACCURACY BY CONDITION
+================================================================================
+
+no_graph:
+  Accuracy: 0.5714
+  95% CI:   [0.5520, 0.5906]
+  Sample:   1440/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+original_graph:
+  Accuracy: 0.5476
+  95% CI:   [0.5281, 0.5670]
+  Sample:   1380/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+reverse_random_edge:
+  Accuracy: 0.5381
+  95% CI:   [0.5186, 0.5575]
+  Sample:   1356/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+add_collider:
+  Accuracy: 0.5258
+  95% CI:   [0.5063, 0.5452]
+  Sample:   1325/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+add_confounder:
+  Accuracy: 0.5052
+  95% CI:   [0.4856, 0.5247]
+  Sample:   1273/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+add_mediator:
+  Accuracy: 0.5520
+  95% CI:   [0.5325, 0.5713]
+  Sample:   1391/2520 correct
+  Method:   Binomial (Wilson score interval)
+
+
+================================================================================
+DELTA METRICS (Effect of Graph)
+================================================================================
+
+Δ₁ (original_graph - no_graph):
+  Mean:    -0.0239
+  95% CI:  [-0.0425, -0.0063]
+  SE:      0.0093
+  Method:  Bootstrap (question-level resampling)
+  Significantly negative: graph hurts (p < 0.05)
+
+Δ₂ (original_graph - corrupted_graphs):
+
+  AVERAGE across all corruption types:
+    Mean:    +0.0174
+    95% CI:  [+0.0080, +0.0270]
+    SE:      0.0049
+    Method:  Bootstrap (question-level resampling)
+    Significantly positive: corruption hurts on average (p < 0.05)
+
+  INDIVIDUAL corruption types:
+
+    reverse_random_edge:
+      Mean:    +0.0096
+      95% CI:  [-0.0012, +0.0202]
+      SE:      0.0055
+      Not significantly different from zero
+
+    add_collider:
+      Mean:    +0.0219
+      95% CI:  [+0.0087, +0.0349]
+      SE:      0.0067
+      Significantly positive: this corruption hurts (p < 0.05)
+
+    add_confounder:
+      Mean:    +0.0425
+      95% CI:  [+0.0278, +0.0571]
+      SE:      0.0076
+      Significantly positive: this corruption hurts (p < 0.05)
+
+    add_mediator:
+      Mean:    -0.0044
+      95% CI:  [-0.0163, +0.0075]
+      SE:      0.0060
+      Not significantly different from zero
+
+Δ₃ (no_graph - corrupted_graphs):
+
+  AVERAGE across all corruption types:
+    Mean:    +0.0411
+    95% CI:  [+0.0235, +0.0588]
+    SE:      0.0089
+    Method:  Bootstrap (question-level resampling)
+    Significantly positive: corruption hurts vs baseline (p < 0.05)
+
+  INDIVIDUAL corruption types:
+
+    reverse_random_edge:
+      Mean:    +0.0335
+      95% CI:  [+0.0151, +0.0528]
+      SE:      0.0096
+      Significantly positive: this corruption hurts vs baseline (p < 0.05)
+
+    add_collider:
+      Mean:    +0.0457
+      95% CI:  [+0.0262, +0.0655]
+      SE:      0.0101
+      Significantly positive: this corruption hurts vs baseline (p < 0.05)
+
+    add_confounder:
+      Mean:    +0.0663
+      95% CI:  [+0.0464, +0.0869]
+      SE:      0.0103
+      Significantly positive: this corruption hurts vs baseline (p < 0.05)
+
+    add_mediator:
+      Mean:    +0.0195
+      95% CI:  [+0.0000, +0.0389]
+      SE:      0.0098
+      Not significantly different from zero
+
+
+================================================================================
+ACCURACY BY CAUSAL RUNG (across all graph conditions)
+================================================================================
+
+no_graph:
+  Rung 1:
+    Accuracy: 0.5226
+    95% CI:   [0.4888, 0.5562]
+    Sample:   439/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.6274
+    95% CI:   [0.5942, 0.6594]
+    Sample:   527/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5643
+    95% CI:   [0.5305, 0.5974]
+    Sample:   474/840 correct
+    Method:   Binomial
+
+original_graph:
+  Rung 1:
+    Accuracy: 0.5298
+    95% CI:   [0.4960, 0.5633]
+    Sample:   445/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.5607
+    95% CI:   [0.5270, 0.5939]
+    Sample:   471/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5524
+    95% CI:   [0.5186, 0.5857]
+    Sample:   464/840 correct
+    Method:   Binomial
+
+reverse_random_edge:
+  Rung 1:
+    Accuracy: 0.5155
+    95% CI:   [0.4817, 0.5491]
+    Sample:   433/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.5679
+    95% CI:   [0.5341, 0.6010]
+    Sample:   477/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5310
+    95% CI:   [0.4971, 0.5645]
+    Sample:   446/840 correct
+    Method:   Binomial
+
+add_collider:
+  Rung 1:
+    Accuracy: 0.5179
+    95% CI:   [0.4841, 0.5515]
+    Sample:   435/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.5310
+    95% CI:   [0.4971, 0.5645]
+    Sample:   446/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5286
+    95% CI:   [0.4948, 0.5621]
+    Sample:   444/840 correct
+    Method:   Binomial
+
+add_confounder:
+  Rung 1:
+    Accuracy: 0.5060
+    95% CI:   [0.4722, 0.5397]
+    Sample:   425/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.4774
+    95% CI:   [0.4438, 0.5112]
+    Sample:   401/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5321
+    95% CI:   [0.4983, 0.5657]
+    Sample:   447/840 correct
+    Method:   Binomial
+
+add_mediator:
+  Rung 1:
+    Accuracy: 0.5381
+    95% CI:   [0.5043, 0.5716]
+    Sample:   452/840 correct
+    Method:   Binomial
+  Rung 2:
+    Accuracy: 0.5595
+    95% CI:   [0.5258, 0.5927]
+    Sample:   470/840 correct
+    Method:   Binomial
+  Rung 3:
+    Accuracy: 0.5583
+    95% CI:   [0.5246, 0.5916]
+    Sample:   469/840 correct
+    Method:   Binomial
+
+COMPARATIVE EVAL (Rung-level):
+--------------------------------------------------------------------------------
+
+Rung 1 across conditions:
+  no_graph            : 0.5226 [0.4888, 0.5562]
+  original_graph      : 0.5298 [0.4960, 0.5633]
+  reverse_random_edge : 0.5155 [0.4817, 0.5491]
+  add_collider        : 0.5179 [0.4841, 0.5515]
+  add_confounder      : 0.5060 [0.4722, 0.5397]
+  add_mediator        : 0.5381 [0.5043, 0.5716]
+
+Rung 2 across conditions:
+  no_graph            : 0.6274 [0.5942, 0.6594]
+  original_graph      : 0.5607 [0.5270, 0.5939]
+  reverse_random_edge : 0.5679 [0.5341, 0.6010]
+  add_collider        : 0.5310 [0.4971, 0.5645]
+  add_confounder      : 0.4774 [0.4438, 0.5112]
+  add_mediator        : 0.5595 [0.5258, 0.5927]
+
+Rung 3 across conditions:
+  no_graph            : 0.5643 [0.5305, 0.5974]
+  original_graph      : 0.5524 [0.5186, 0.5857]
+  reverse_random_edge : 0.5310 [0.4971, 0.5645]
+  add_collider        : 0.5286 [0.4948, 0.5621]
+  add_confounder      : 0.5321 [0.4983, 0.5657]
+  add_mediator        : 0.5583 [0.5246, 0.5916]
+
+
+================================================================================
+ACCURACY BY SENSE CATEGORY (across all graph conditions)
+================================================================================
+
+no_graph:
+  Commonsense:
+    Accuracy: 0.5452
+    95% CI:   [0.5114, 0.5786]
+    Sample:   458/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5810
+    95% CI:   [0.5473, 0.6139]
+    Sample:   488/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.5881
+    95% CI:   [0.5545, 0.6209]
+    Sample:   494/840 correct
+    Method:   Binomial
+
+original_graph:
+  Commonsense:
+    Accuracy: 0.5429
+    95% CI:   [0.5091, 0.5763]
+    Sample:   456/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5560
+    95% CI:   [0.5222, 0.5892]
+    Sample:   467/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.5440
+    95% CI:   [0.5102, 0.5775]
+    Sample:   457/840 correct
+    Method:   Binomial
+
+reverse_random_edge:
+  Commonsense:
+    Accuracy: 0.5345
+    95% CI:   [0.5007, 0.5680]
+    Sample:   449/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5464
+    95% CI:   [0.5126, 0.5798]
+    Sample:   459/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.5333
+    95% CI:   [0.4995, 0.5668]
+    Sample:   448/840 correct
+    Method:   Binomial
+
+add_collider:
+  Commonsense:
+    Accuracy: 0.5202
+    95% CI:   [0.4864, 0.5539]
+    Sample:   437/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5274
+    95% CI:   [0.4936, 0.5609]
+    Sample:   443/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.5298
+    95% CI:   [0.4960, 0.5633]
+    Sample:   445/840 correct
+    Method:   Binomial
+
+add_confounder:
+  Commonsense:
+    Accuracy: 0.5179
+    95% CI:   [0.4841, 0.5515]
+    Sample:   435/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5167
+    95% CI:   [0.4829, 0.5503]
+    Sample:   434/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.4810
+    95% CI:   [0.4473, 0.5148]
+    Sample:   404/840 correct
+    Method:   Binomial
+
+add_mediator:
+  Commonsense:
+    Accuracy: 0.5417
+    95% CI:   [0.5079, 0.5751]
+    Sample:   455/840 correct
+    Method:   Binomial
+  Anticommonsense:
+    Accuracy: 0.5607
+    95% CI:   [0.5270, 0.5939]
+    Sample:   471/840 correct
+    Method:   Binomial
+  Nonsense:
+    Accuracy: 0.5536
+    95% CI:   [0.5198, 0.5869]
+    Sample:   465/840 correct
+    Method:   Binomial
+
+COMPARATIVE EVAL (Category-level):
+--------------------------------------------------------------------------------
+
+Commonsense across conditions:
+  no_graph            : 0.5452 [0.5114, 0.5786]
+  original_graph      : 0.5429 [0.5091, 0.5763]
+  reverse_random_edge : 0.5345 [0.5007, 0.5680]
+  add_collider        : 0.5202 [0.4864, 0.5539]
+  add_confounder      : 0.5179 [0.4841, 0.5515]
+  add_mediator        : 0.5417 [0.5079, 0.5751]
+
+Anticommonsense across conditions:
+  no_graph            : 0.5810 [0.5473, 0.6139]
+  original_graph      : 0.5560 [0.5222, 0.5892]
+  reverse_random_edge : 0.5464 [0.5126, 0.5798]
+  add_collider        : 0.5274 [0.4936, 0.5609]
+  add_confounder      : 0.5167 [0.4829, 0.5503]
+  add_mediator        : 0.5607 [0.5270, 0.5939]
+
+Nonsense across conditions:
+  no_graph            : 0.5881 [0.5545, 0.6209]
+  original_graph      : 0.5440 [0.5102, 0.5775]
+  reverse_random_edge : 0.5333 [0.4995, 0.5668]
+  add_collider        : 0.5298 [0.4960, 0.5633]
+  add_confounder      : 0.4810 [0.4473, 0.5148]
+  add_mediator        : 0.5536 [0.5198, 0.5869]
+
+
+================================================================================
+GRAPH BENEFIT PATTERN
+================================================================================
+
+Proportion of questions where graph helps (patterns 010 + 011):
+  Mean:    0.1001
+  95% CI:  [0.0910, 0.1091]
+  SE:      0.0046
+  Method:  Bootstrap
+
+Pattern 010: wrong with no graph, correct with original, wrong with corrupted
+Pattern 011: wrong with no graph, correct with both original and corrupted
+Note: 'corrupted' uses OR aggregation (correct on ANY corruption type)
+
+================================================================================
+END OF REPORT
+================================================================================

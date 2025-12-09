@@ -1,0 +1,16 @@
+================================================================================
+Pattern Summary Metrics
+================================================================================
+
+Hypothesis: H1 supporting metrics
+
+                     Metric  Count Percentage                                              Description      Model
+Graph Beneficial (010, 011)     96       7.7%                              Questions where graph helps GPT-5-mini
+   Graph Harmful (100, 101)     28       2.2%                              Questions where graph hurts GPT-5-mini
+ Corruption Sensitive (110)    139      11.2% Correct with no_graph and original, wrong with corrupted GPT-5-mini
+           Net Graph Effect     68       5.5%                                     Beneficial - Harmful GPT-5-mini
+
+Notes:
+--------------------------------------------------------------------------------
+1. Net positive effect indicates graphs are beneficial overall
+2. Net negative effect indicates graphs are harmful overall

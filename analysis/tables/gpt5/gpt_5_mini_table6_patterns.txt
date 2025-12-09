@@ -1,0 +1,22 @@
+================================================================================
+Question-Level Correctness Patterns
+================================================================================
+
+Hypothesis: Supporting analysis for H1
+
+                                         Interpretation  Count Percentage       Model
+Pattern                                                                              
+000                           All Wrong (Hard Question)     72       5.8%  GPT-5-mini
+001                  Only Corrupted Correct (Anomalous)      1       0.1%  GPT-5-mini
+010                 Only Original Correct (Graph Helps)     55       4.4%  GPT-5-mini
+011                        Original & Corrupted Correct     41       3.3%  GPT-5-mini
+100                 Only No-Graph Correct (Graph Hurts)     26       2.1%  GPT-5-mini
+101                        No-Graph & Corrupted Correct      2       0.2%  GPT-5-mini
+110      No-Graph & Original Correct (Corruption Hurts)    139      11.2%  GPT-5-mini
+111                         All Correct (Easy Question)    909      73.0%  GPT-5-mini
+
+Notes:
+--------------------------------------------------------------------------------
+1. Pattern format: [no_graph][original][corrupted] where 1=correct, 0=wrong
+2. Strict criterion: corrupted=1 only if ALL corruption types answered
+correctly

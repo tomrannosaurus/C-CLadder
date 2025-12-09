@@ -1,0 +1,6 @@
+transformers[torch]
+huggingface_hub[hf_xet]
+transformers[sentencepiece]
+openai>=1.0.0
+anthropic>=0.18.0
+typing_extensions>=4.5.0

@@ -1,0 +1,18 @@
+================================================================================
+Rung-Level Analysis (H6)
+================================================================================
+
+Hypothesis: H6: Causal Reasoning Level Effects
+
+           Rung_Name           Acc_NoGraph  n_NoGraph           Acc_Correct  n_Correct                   Delta1               Delta2_avg            Model
+Rung                                                                                                                                                     
+1        Association  0.972 [0.954, 0.983]        503  0.968 [0.949, 0.980]        504  -0.004 [-0.010, +0.000]  -0.002 [-0.005, +0.000]  Claude Sonnet 4
+2       Intervention  0.667 [0.624, 0.706]        504  0.841 [0.807, 0.871]        504  +0.175 [+0.135, +0.216]  +0.014 [-0.009, +0.037]  Claude Sonnet 4
+3     Counterfactual  0.863 [0.830, 0.890]        503  0.891 [0.861, 0.915]        504  +0.028 [+0.000, +0.056]  +0.018 [+0.001, +0.036]  Claude Sonnet 4
+
+Notes:
+--------------------------------------------------------------------------------
+1. Rung 1 (Association): P(Y|X) - observational queries
+2. Rung 2 (Intervention): P(Y|do(X)) - action-based queries
+3. Rung 3 (Counterfactual): P(Y_x|X',Y') - what-if queries
+4. Expected: Stronger graph effects at lower rungs (simpler reasoning)

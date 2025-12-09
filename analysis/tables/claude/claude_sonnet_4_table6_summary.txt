@@ -1,0 +1,16 @@
+================================================================================
+Pattern Summary Metrics
+================================================================================
+
+Hypothesis: H1 supporting metrics
+
+                     Metric  Count Percentage                                              Description           Model
+Graph Beneficial (010, 011)    139       9.2%                              Questions where graph helps Claude Sonnet 4
+   Graph Harmful (100, 101)     39       2.6%                              Questions where graph hurts Claude Sonnet 4
+ Corruption Sensitive (110)     98       6.5% Correct with no_graph and original, wrong with corrupted Claude Sonnet 4
+           Net Graph Effect    100       6.6%                                     Beneficial - Harmful Claude Sonnet 4
+
+Notes:
+--------------------------------------------------------------------------------
+1. Net positive effect indicates graphs are beneficial overall
+2. Net negative effect indicates graphs are harmful overall

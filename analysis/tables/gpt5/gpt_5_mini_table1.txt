@@ -1,0 +1,16 @@
+================================================================================
+Overall Performance and Delta Metrics (H1)
+================================================================================
+
+Hypothesis: H1: Causal Graph Non-Utilization
+
+     Model          Acc_NoGraph  n_NoGraph          Acc_Correct  n_Correct        Acc_Corrupted  n_Corrupted                  Delta1                  Delta2                  Delta3
+GPT-5-mini 0.864 [0.844, 0.882]       1245 0.919 [0.902, 0.933]       1245 0.876 [0.861, 0.891]         1245 +0.055 [+0.038, +0.072] +0.043 [+0.033, +0.052] -0.012 [-0.028, +0.004]
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₁ (Graph Benefit) = Acc(Correct) - Acc(No Graph)
+2. Δ₂ (Corruption Harm) = Acc(Correct) - Acc(Corrupted)
+3. Δ₃ (Parametric Advantage) = Acc(No Graph) - Acc(Corrupted)
+4. All confidence intervals computed via bootstrap (10,000 iterations)
+5. Significance: CI excludes 0 → p < 0.05

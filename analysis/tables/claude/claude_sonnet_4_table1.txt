@@ -1,0 +1,16 @@
+================================================================================
+Overall Performance and Delta Metrics (H1)
+================================================================================
+
+Hypothesis: H1: Causal Graph Non-Utilization
+
+          Model          Acc_NoGraph  n_NoGraph          Acc_Correct  n_Correct        Acc_Corrupted  n_Corrupted                  Delta1                  Delta2                  Delta3
+Claude Sonnet 4 0.834 [0.814, 0.852]       1510 0.900 [0.884, 0.914]       1512 0.890 [0.877, 0.903]         1511 +0.066 [+0.050, +0.084] +0.010 [+0.001, +0.020] -0.056 [-0.072, -0.040]
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₁ (Graph Benefit) = Acc(Correct) - Acc(No Graph)
+2. Δ₂ (Corruption Harm) = Acc(Correct) - Acc(Corrupted)
+3. Δ₃ (Parametric Advantage) = Acc(No Graph) - Acc(Corrupted)
+4. All confidence intervals computed via bootstrap (10,000 iterations)
+5. Significance: CI excludes 0 → p < 0.05

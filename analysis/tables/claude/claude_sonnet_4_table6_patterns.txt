@@ -1,0 +1,22 @@
+================================================================================
+Question-Level Correctness Patterns
+================================================================================
+
+Hypothesis: Supporting analysis for H1
+
+                                         Interpretation  Count Percentage            Model
+Pattern                                                                                   
+000                           All Wrong (Hard Question)    107       7.1%  Claude Sonnet 4
+001                  Only Corrupted Correct (Anomalous)      5       0.3%  Claude Sonnet 4
+010                 Only Original Correct (Graph Helps)     77       5.1%  Claude Sonnet 4
+011                        Original & Corrupted Correct     62       4.1%  Claude Sonnet 4
+100                 Only No-Graph Correct (Graph Hurts)     34       2.3%  Claude Sonnet 4
+101                        No-Graph & Corrupted Correct      5       0.3%  Claude Sonnet 4
+110      No-Graph & Original Correct (Corruption Hurts)     98       6.5%  Claude Sonnet 4
+111                         All Correct (Easy Question)   1122      74.3%  Claude Sonnet 4
+
+Notes:
+--------------------------------------------------------------------------------
+1. Pattern format: [no_graph][original][corrupted] where 1=correct, 0=wrong
+2. Strict criterion: corrupted=1 only if ALL corruption types answered
+correctly

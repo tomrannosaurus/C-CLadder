@@ -1,0 +1,18 @@
+================================================================================
+Corruption-Specific Sensitivity (H2)
+================================================================================
+
+Hypothesis: H2: Differential Corruption Sensitivity
+
+     Model     Corruption_Type Accuracy    n                  Delta2  Acc_CI_low  Acc_CI_high
+GPT-5-mini reverse_random_edge    0.824 1246 +0.095 [+0.076, +0.114]    0.802116     0.844366
+GPT-5-mini      add_confounder    0.848 1246 +0.071 [+0.055, +0.087]    0.827328     0.867160
+GPT-5-mini        add_mediator    0.911 1245 +0.008 [-0.002, +0.018]    0.893724     0.925435
+GPT-5-mini        add_collider    0.921 1246 -0.002 [-0.010, +0.006]    0.904204     0.934302
+
+Notes:
+--------------------------------------------------------------------------------
+1. Δ₂ = Acc(Correct Graph) - Acc(This Corruption)
+2. Sorted by Δ₂ magnitude (most harmful first)
+3. Expected ranking: Confounder > Collider > Mediator > Random Edge
+4. Positive Δ₂ indicates corruption hurts performance

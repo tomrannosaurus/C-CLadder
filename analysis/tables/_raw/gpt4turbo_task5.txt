@@ -1,0 +1,207 @@
+======================================================================
+TASK 5: STATISTICAL ANALYSIS
+======================================================================
+
+======================================================================
+MODEL: gpt4_turbo
+======================================================================
+
+SECTION 1: OVERALL ACCURACY
+----------------------------------------------------------------------
+  no_graph                 : 0.636  (n=489)
+  original_graph           : 0.620  (n=468)
+  reverse_random_edge      : 0.613  (n=468)
+  add_collider             : 0.621  (n=456)
+  add_confounder           : 0.610  (n=467)
+  add_mediator             : 0.608  (n=462)
+
+Summary:
+  No Graph:            0.636
+  Correct Graph:       0.620
+  Avg Corrupted:       0.613
+
+Deltas:
+  Delta1 (correct-none):     -0.016
+  AvgDelta2 (correct-corr):  +0.007
+  AvgDelta3 (none-corr):     +0.023
+
+SECTION 2: BY SCENARIO
+----------------------------------------------------------------------
+
+COMMONSENSE:
+  no_graph                 : 0.659  (n=164)
+  original_graph           : 0.607  (n=163)
+  reverse_random_edge      : 0.597  (n=159)
+  add_collider             : 0.603  (n=156)
+  add_confounder           : 0.599  (n=157)
+  add_mediator             : 0.603  (n=156)
+
+  Summary:
+    No Graph:        0.659
+    Correct Graph:   0.607
+    Avg Corrupted:   0.600
+  Delta1: -0.051
+  AvgDelta2: +0.007
+  AvgDelta3: +0.058
+
+ANTICOMMONSENSE:
+  no_graph                 : 0.667  (n=165)
+  original_graph           : 0.660  (n=153)
+  reverse_random_edge      : 0.658  (n=155)
+  add_collider             : 0.658  (n=149)
+  add_confounder           : 0.665  (n=155)
+  add_mediator             : 0.647  (n=153)
+
+  Summary:
+    No Graph:        0.667
+    Correct Graph:   0.660
+    Avg Corrupted:   0.657
+  Delta1: -0.007
+  AvgDelta2: +0.003
+  AvgDelta3: +0.010
+
+NONSENSE:
+  no_graph                 : 0.581  (n=160)
+  original_graph           : 0.592  (n=152)
+  reverse_random_edge      : 0.584  (n=154)
+  add_collider             : 0.603  (n=151)
+  add_confounder           : 0.568  (n=155)
+  add_mediator             : 0.575  (n=153)
+
+  Summary:
+    No Graph:        0.581
+    Correct Graph:   0.592
+    Avg Corrupted:   0.582
+  Delta1: +0.011
+  AvgDelta2: +0.010
+  AvgDelta3: -0.001
+
+SECTION 3: BY RUNG
+----------------------------------------------------------------------
+
+Rung 1 (Association):
+  no_graph                 : 0.660  (n=153)
+  original_graph           : 0.667  (n=132)
+  reverse_random_edge      : 0.629  (n=132)
+  add_collider             : 0.642  (n=120)
+  add_confounder           : 0.649  (n=131)
+  add_mediator             : 0.667  (n=126)
+
+  Summary:
+    No Graph:        0.660
+    Correct Graph:   0.667
+    Avg Corrupted:   0.646
+  Delta1: +0.007
+  AvgDelta2: +0.020
+  AvgDelta3: +0.014
+
+Rung 2 (Intervention):
+  no_graph                 : 0.613  (n=168)
+  original_graph           : 0.583  (n=168)
+  reverse_random_edge      : 0.601  (n=168)
+  add_collider             : 0.589  (n=168)
+  add_confounder           : 0.571  (n=168)
+  add_mediator             : 0.548  (n=168)
+
+  Summary:
+    No Graph:        0.613
+    Correct Graph:   0.583
+    Avg Corrupted:   0.577
+  Delta1: -0.030
+  AvgDelta2: +0.006
+  AvgDelta3: +0.036
+
+Rung 3 (Counterfactual):
+  no_graph                 : 0.637  (n=168)
+  original_graph           : 0.619  (n=168)
+  reverse_random_edge      : 0.613  (n=168)
+  add_collider             : 0.637  (n=168)
+  add_confounder           : 0.619  (n=168)
+  add_mediator             : 0.625  (n=168)
+
+  Summary:
+    No Graph:        0.637
+    Correct Graph:   0.619
+    Avg Corrupted:   0.624
+  Delta1: -0.018
+  AvgDelta2: -0.004
+  AvgDelta3: +0.013
+
+SECTION 4: ERROR PATTERNS
+----------------------------------------------------------------------
+
+no_graph:
+  Total: 178
+  Yes->No: 100 (56.2%)
+  No->Yes: 78 (43.8%)
+
+original_graph:
+  Total: 178
+  Yes->No: 94 (52.8%)
+  No->Yes: 84 (47.2%)
+
+reverse_random_edge:
+  Total: 181
+  Yes->No: 97 (53.6%)
+  No->Yes: 84 (46.4%)
+
+add_collider:
+  Total: 173
+  Yes->No: 89 (51.4%)
+  No->Yes: 84 (48.6%)
+
+add_confounder:
+  Total: 182
+  Yes->No: 102 (56.0%)
+  No->Yes: 80 (44.0%)
+
+add_mediator:
+  Total: 181
+  Yes->No: 95 (52.5%)
+  No->Yes: 86 (47.5%)
+
+SECTION 5: RESEARCH QUESTIONS
+----------------------------------------------------------------------
+
+Q1: Correct graph effect (H0: no effect)
+  Delta: -0.016
+  Note: Small delta; may be within margin of error
+
+Q2: Corruption effect (H0: no effect)
+  Avg Delta: +0.007
+  Note: Small delta; may be within margin of error
+    reverse_random_edge      : +0.006
+    add_collider             : -0.001
+    add_confounder           : +0.009
+    add_mediator             : +0.011
+
+Q2b: Baseline vs corruption effect (H0: no effect)
+  Avg Delta: +0.023
+  Note: Small delta; may be within margin of error
+    reverse_random_edge      : +0.023
+    add_collider             : +0.015
+    add_confounder           : +0.026
+    add_mediator             : +0.028
+
+Q3: Scenario effect (H0: uniform across scenarios)
+  commonsense         : 0.607
+  anticommonsense     : 0.660
+  nonsense            : 0.592
+  Range: 0.068
+  Note: Small range; differences may be within margin of error
+
+Q4: Rung effect (H0: uniform across rungs)
+  Rung 1: 0.667
+  Rung 2: 0.583
+  Rung 3: 0.619
+  Range: 0.083
+  Note: Small range; differences may be within margin of error
+
+Q5: Error symmetry (H0: balanced yes->no vs no->yes)
+  Yes->No: 577 (53.8%)
+  No->Yes: 496 (46.2%)
+  Note: Small difference; may be within margin of error
+
+======================================================================
+END OF REPORT
+======================================================================

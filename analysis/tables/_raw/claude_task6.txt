@@ -1,0 +1,71 @@
+======================================================================
+TASK 6: PATTERN ANALYSIS
+======================================================================
+
+======================================================================
+MODEL: claude
+======================================================================
+
+SECTION 1: OVERVIEW
+----------------------------------------------------------------------
+  Total questions:         1512
+  With all 3 conditions:   1510
+
+SECTION 2: PATTERN DISTRIBUTION
+----------------------------------------------------------------------
+  Pattern: [no_graph][original][corrupted]  (1=correct, 0=wrong)
+
+  000 (all_wrong                     ):   72  (  4.8%)
+  001 (only_corrupted_correct        ):   40  (  2.6%)
+  010 (only_original_correct         ):   12  (  0.8%)
+  011 (original_and_corrupted_correct):  129  (  8.5%)
+  100 (only_no_graph_correct         ):   28  (  1.9%)
+  101 (no_graph_and_corrupted_correct):   11  (  0.7%)
+  110 (no_graph_and_original_correct ):   22  (  1.5%)
+  111 (all_correct                   ): 1198  ( 79.2%)
+
+  Total: 1512
+
+SECTION 3: CONSISTENCY
+----------------------------------------------------------------------
+  (n=1510 questions with all 3 conditions)
+
+  Consistent (all same):      1270  ( 84.1%)
+  Changed adding graph:        178  ( 11.8%)
+  Changed by corruption:        85  (  5.6%)
+
+SECTION 4: SENSITIVITY METRICS
+----------------------------------------------------------------------
+  Graph beneficial (010,011):    141
+  Graph harmful (100,101):        39
+  Corruption sensitive (110):     22
+  Anomalous (001):                40
+
+  Net graph effect:             +102
+
+SECTION 5: RESEARCH QUESTIONS
+----------------------------------------------------------------------
+
+Q1: Graph sensitivity (H0: model ignores graph)
+  Changed answers: 15.9%
+
+Q2: Correct graph effect (H0: no benefit)
+  Helped (010,011): 141
+  Hurt (100,101):   39
+  Net: +102
+  Note: Small net effect; may be within margin of error
+
+Q3: Corruption effect (H0: no degradation)
+  Hurt (110):       22
+  Helped (001):     40
+  Net: -18
+  Note: Small net effect; may be within margin of error
+
+Q4: Difficulty distribution
+  Always correct (111): 1198 (79.2%)
+  Always wrong (000):     72 (4.8%)
+  Graph-dependent:       242 (16.0%)
+
+======================================================================
+END OF REPORT
+======================================================================
