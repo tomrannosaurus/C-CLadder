@@ -89,7 +89,7 @@ python model/run_llm_and_export_csv.py
     --input_jsonl data/corruption/corrupted_causal_graphs_dataset_f1.jsonl \
     --output_csv mistral.csv \
     --model_id mistralai/Mistral-7B-Instruct-v0.3 \
-    --batch_size 16
+    --batch_size 16 # Speed Up
 ```
 
 ## Running API Models
